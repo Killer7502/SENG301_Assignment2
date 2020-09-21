@@ -26,7 +26,6 @@ public class LoadData {
 					while (inFS.hasNext()) {
 						readLine = inFS.nextLine();
 						
-						//(",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))")
 						String[] tempArray = readLine.split(",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))"); //FIXME: Fix to regex for ","
 						
 						for (int i = 0; i < tempArray.length; i++) {
@@ -37,11 +36,6 @@ public class LoadData {
 						
 						Book book = new Book(items);
 						books.add(book);
-						
-						//TEST
-						for (int i = 0; i < items.size(); i++) {
-							System.out.println(items.get(i));
-						}
 						
 						//Clear tempArray and items
 						items.clear();
@@ -59,9 +53,11 @@ public class LoadData {
 		}
 	}
 	
+	/**/
 	public static void main(String[] args) {
 		String fName = ("C:\\MyDocuments\\JavaStuff\\testFile.csv");
 		File file = new File(fName);
 		loadCSV(file);
 	}
+	/**/
 }

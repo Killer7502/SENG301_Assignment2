@@ -28,6 +28,9 @@ public class Book {
 	private String image_url;
 	private String small_image_url;
 	
+	ArrayList<String> varNamesArray = new ArrayList<String>();
+	ArrayList<String> varValuesArray = new ArrayList<String>();
+	
 	
 	
 	
@@ -55,7 +58,47 @@ public class Book {
 		ratings_5 = Integer.parseInt(items.get(20));
 		image_url = items.get(21);
 		small_image_url = items.get(22);
+		
+		varNamesArray.add("book_id");
+		varNamesArray.add("goodreads_book_id");
+		varNamesArray.add("best_book_id");
+		varNamesArray.add("work_id");
+		varNamesArray.add("books_count");
+		varNamesArray.add("isbn");
+		varNamesArray.add("isbn13");
+		varNamesArray.add("authors");
+		varNamesArray.add("original_publication_year");
+		varNamesArray.add("original_title");
+		varNamesArray.add("title");
+		varNamesArray.add("language_code");
+		varNamesArray.add("average_rating");
+		varNamesArray.add("ratings_count");
+		varNamesArray.add("work_ratings_count");
+		varNamesArray.add("work_text_reviews_count");
+		varNamesArray.add("ratings_1");
+		varNamesArray.add("ratings_2");
+		varNamesArray.add("ratings_3");
+		varNamesArray.add("ratings_4");
+		varNamesArray.add("ratings_5");
+		varNamesArray.add("image_url");
+		varNamesArray.add("small_image_url");
+		
+		varValuesArray = items;
 	}
 	
+	public String getVarValue(String varName) {
+		String value = "";
+		
+		for (int i = 0; i < varNamesArray.size(); i++) {
+			if (varName.equals(varNamesArray.get(i))) {
+				value = varNamesArray.get(i);
+				break;
+			}
+			else {
+				value = "-1";
+			}
+		}
+		return value;
+	}
 
 }
